@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/chaos/Documents/projectforce/project'
+let g:netrw_dirhist_2='/home/chaos/dotfiles/Arch/.config/fontconfig'
+let g:netrw_dirhist_3='/home/chaos/.cache/pacaur/servo-git'

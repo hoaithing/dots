@@ -1,0 +1,43 @@
+[Added Associations]
+application/json=org.kde.kate.desktop;firefox-developer-edition.desktop;libreoffice-writer.desktop;okularApplication_txt.desktop;nvim.desktop;vim.desktop;code-oss.desktop;
+application/wps-office.xlsx=wps-office-et.desktop;yozo-calc.desktop;
+application/x-bittorrent=qBittorrent.desktop;
+application/x-ole-storage=wps-office-wpp.desktop;
+application/x-shellscript=org.kde.kate.desktop;
+application/x-trash=sublime_text_3_imfix.desktop;
+application/xhtml+xml=chromium.desktop;org.kde.kate.desktop;okularApplication_txt.desktop;firefox.desktop;nvim.desktop;
+audio/mpeg=clementine.desktop;vlc.desktop;
+image/jpeg=shotwell-viewer.desktop;mypaint.desktop;evince.desktop;
+inode/directory=org.kde.dolphin.desktop;
+text/csv=wps-office-et.desktop;
+text/html=firefoxdeveloperedition.desktop;google-chrome.desktop;org.kde.kate.desktop;okularApplication_txt.desktop;nvim.desktop;org.kde.kwrite.desktop;libreoffice-writer.desktop;code-oss.desktop;neovide.desktop;vim.desktop;org.xfce.mousepad.desktop;
+text/markdown=remarkable.desktop;
+text/plain=org.kde.kate.desktop;google-chrome.desktop;org.gnome.gedit.desktop;
+video/mp4=vlc.desktop;
+x-scheme-handler/geo=qwant-maps-geo-handler.desktop;
+x-scheme-handler/http=firefoxdeveloperedition.desktop;
+x-scheme-handler/https=firefoxdeveloperedition.desktop;
+x-scheme-handler/tel=org.kde.kdeconnect.handler.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-FYHAH1.desktop;
+
+[Default Applications]
+application/json=org.kde.kate.desktop;
+application/x-ole-storage=wps-office-wpp.desktop;
+application/x-shellscript=org.kde.kate.desktop;
+application/xhtml+xml=chromium.desktop;
+inode/directory=org.kde.dolphin.desktop;
+text/html=firefoxdeveloperedition.desktop;
+text/markdown=remarkable.desktop;
+text/plain=org.kde.kate.desktop;
+x-scheme-handler/callto=skypeforlinux.desktop
+x-scheme-handler/figma=figma-linux.desktop
+x-scheme-handler/franz=franz.desktop
+x-scheme-handler/geo=qwant-maps-geo-handler.desktop;
+x-scheme-handler/http=firefoxdeveloperedition.desktop;
+x-scheme-handler/https=firefoxdeveloperedition.desktop;
+x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/skype=skypeforlinux.desktop
+x-scheme-handler/slack=slack.desktop
+x-scheme-handler/ssh=ktelnetservice5.desktop
+x-scheme-handler/tel=org.kde.kdeconnect.handler.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-FYHAH1.desktop

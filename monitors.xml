@@ -1,0 +1,61 @@
+<monitors version="1">
+  <configuration>
+    <clone>no</clone>
+    <output name="LVDS1">
+      <vendor>CMO</vendor>
+      <product>0x1592</product>
+      <serial>0x00000000</serial>
+    </output>
+    <output name="VGA1">
+      <vendor>DEL</vendor>
+      <product>DELL E2216HV</product>
+      <serial>KHR1X597AP4U</serial>
+      <width>1920</width>
+      <height>1080</height>
+      <rate>60</rate>
+      <x>0</x>
+      <y>0</y>
+      <rotation>normal</rotation>
+      <reflect_x>no</reflect_x>
+      <reflect_y>no</reflect_y>
+      <primary>yes</primary>
+      <presentation>no</presentation>
+      <underscanning>no</underscanning>
+    </output>
+  </configuration>
+  <configuration>
+    <clone>no</clone>
+    <output name="LVDS-1">
+      <vendor>CMO</vendor>
+      <product>0x1592</product>
+      <serial>0x00000000</serial>
+      <width>1366</width>
+      <height>768</height>
+      <rate>60.015098571777344</rate>
+      <x>0</x>
+      <y>0</y>
+      <rotation>normal</rotation>
+      <reflect_x>no</reflect_x>
+      <reflect_y>no</reflect_y>
+      <primary>yes</primary>
+      <presentation>no</presentation>
+      <underscanning>no</underscanning>
+    </output>
+    <output name="VGA-1">
+      <vendor>DEL</vendor>
+      <product>DELL E2216HV</product>
+      <serial>KHR1X597AP4U</serial>
+      <width>1920</width>
+      <height>1080</height>
+      <rate>60.000495910644531</rate>
+      <x>1366</x>
+      <y>0</y>
+      <rotation>normal</rotation>
+      <reflect_x>no</reflect_x>
+      <reflect_y>no</reflect_y>
+      <primary>no</primary>
+      <presentation>no</presentation>
+      <underscanning>no</underscanning>
+    </output>
+  </configuration>
+</monitors>

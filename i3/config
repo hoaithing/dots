@@ -1,0 +1,251 @@
+set $mod Mod4
+set $mod1 Mod1
+set $mod3 Control
+exec xset r rate 500 30
+exec --no-startup-id /usr/bin/feh --bg-scale ~/Pictures/cat.png
+exec --no-startup-id /usr/bin/fcitx5
+exec --no-startup-id /usr/bin/dunst
+exec --no-startup-id /usr/bin/greenclip daemon
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 &
+font pango: BlexMono Nerd Font 12
+
+#Colors
+set $back               #1E2127
+set $black              #1d2021
+set $grey               #5C6370
+set $lightgrey          #5C6370
+set $white              #d4be98
+set $yellow             #d8a657
+set $red                #ea6962
+set $darkred            #E06C75
+set $green              #a9b665
+set $purple             #945e80
+set $blue               #7daea3
+set $archblue           #61AFEF
+set $orange             #fe8019
+set $background         #1E2127
+set $transparent        #f1efee77
+
+#class                  border      backgr     text        split
+client.focused          #cba6f7     #cba6f7    $black      #cba6f7
+client.focused_inactive #1e1e2e     #1e1e2e    #ebdbb2     #1E2127
+client.unfocused        #1e1e2e     #1e1e2e    #ebdbb2     #1E2127
+client.urgent           #E06C75     #red       #ebdbb2     #1E2127
+
+hide_edge_borders smart
+floating_modifier $mod
+popup_during_fullscreen smart
+bindsym $mod+Return exec /usr/bin/alacritty
+
+for_window [class="^.*"] border pixel 2
+for_window [class="inactive"] border pixel 0
+gaps inner 6
+gaps outer 0
+
+#edit gaps mode
+#########################################################################
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+##########################################################################
+
+#custom app commands (?i) just means case insenitive..
+for_window [class="(?i)qemu-system-x86_64"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [class="(?i)pavucontrol"] floating enable, border normal, move position mouse
+
+# kill focused window
+bindsym $mod+Shift+q kill
+default_border none
+
+bindsym $mod1+d exec --no-startup-id rofi -lines 5 -font "Iosevka SS18 Extended 22"  -show run
+bindsym $mod+F12 exec --no-startup-id i3lock-fancy-rapid 10 10
+bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -lines 5 -show clipboard -run-command '{cmd}'
+
+#use "xmodmap -pke" to get list of special keys
+#custom special key fixes
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym XF86AudioMute exec amixer set Master toggle
+
+bindsym Print exec teiler
+bindsym $mod+Print exec scrot -u -e 'mv $f ~/Pictures/screenshots/'
+bindsym F2 exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -lines 5 -font "Iosevka SS18 Extended 22" -dmenu'
+# vim keys
+set $key_left h
+set $key_down j
+set $key_up k
+set $key_right l
+
+# change focus
+bindsym $mod+$key_left focus left
+bindsym $mod+$key_down focus down
+bindsym $mod+$key_up focus up
+bindsym $mod+$key_right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$key_left move left
+bindsym $mod+Shift+$key_down move down
+bindsym $mod+Shift+$key_up move up
+bindsym $mod+Shift+$key_right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in burger (horizontal) orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym XF86AudioStop exec --no-startup-id /usr/bin/mpc stop
+bindsym XF86AudioPlay exec --no-startup-id /usr/bin/mpc toggle
+bindsym XF86AudioNext exec --no-startup-id /usr/bin/mpc n
+bindsym XF86AudioPrev exec --no-startup-id /usr/bin/mpc prev
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+Shift+p focus mode_toggle
+
+# focus the parent container
+bindsym $mod+p focus parent
+
+# workspaces
+set $ws1 1: 
+set $ws2 2: 
+set $ws3 3: 
+set $ws4 4: 
+set $ws5 5: 
+set $ws6 6: 
+set $ws7 7: 
+set $ws8 8: 
+set $ws9 9: 
+
+# switch to workspaces
+bindsym $mod1+1 workspace $ws1
+bindsym $mod1+2 workspace $ws2
+bindsym $mod1+3 workspace $ws3
+bindsym $mod1+4 workspace $ws4
+bindsym $mod1+5 workspace $ws5
+bindsym $mod1+6 workspace $ws6
+bindsym $mod1+7 workspace $ws7
+bindsym $mod1+8 workspace $ws8
+bindsym $mod1+9 workspace $ws9
+
+# move focused container to workspace
+bindsym $mod1+Shift+1 move container to workspace $ws1
+bindsym $mod1+Shift+2 move container to workspace $ws2
+bindsym $mod1+Shift+3 move container to workspace $ws3
+bindsym $mod1+Shift+4 move container to workspace $ws4
+bindsym $mod1+Shift+5 move container to workspace $ws5
+bindsym $mod1+Shift+6 move container to workspace $ws6
+bindsym $mod1+Shift+7 move container to workspace $ws7
+bindsym $mod1+Shift+8 move container to workspace $ws8
+bindsym $mod1+Shift+9 move container to workspace $ws9
+
+# assignments (need 2 fix)
+assign [class="^firefox$" instance="^firefox$"] $ws3
+assign [title="Spotify" instance="^spotify$"] $ws4
+assign [title="^thunderbird$" instance="^thunderbird$"] $ws5
+assign [class="^mpv$" instance="^gl$"] $ws6
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym $key_left resize shrink width 2 px or 2 ppt
+    bindsym $key_up resize grow height 2 px or 2 ppt
+    bindsym $key_down resize shrink height 2 px or 2 ppt
+    bindsym $key_right resize grow width 2 px or 2 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 2 px or 2 ppt
+    bindsym Down resize grow height 2 px or 2 ppt
+    bindsym Up resize shrink height 2 px or 2 ppt
+    bindsym Right resize grow width 2 px or 2 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+bindsym $mod+Shift+w exec pkill compton, gaps inner 10, gaps outer 5
+
+bar {
+    font pango:Iosevka Nerd Font 11
+    status_command i3blocks -c ~/.config/i3blocks/i3block.conf
+    position top
+    mode dock
+    hidden_state show
+    colors {
+        separator $white
+        background #1e1e2e
+        statusline #c5c8c6
+        focused_workspace #f5c2e7 #f5c2e7 #1e1e2e
+        active_workspace #1e1e2e #1e1e2e #fab387
+        inactive_workspace #1e1e2e #1e1e2e #cdd6f4
+        urgent_workspace #f38ba8 #f38ba8 #ffffff
+    }
+}
+

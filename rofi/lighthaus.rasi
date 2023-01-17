@@ -1,0 +1,104 @@
+/* Lighthaus Color theme for Rofi
+   GIT: https://github.com/lighthaus-theme/rofi
+   Author: Adhiraj Sirohi (https://github.com/brutuski)
+           Vasundhara Sharma (https://github.com/vasundhasauras)
+
+   Copyright © 2020-Present Lighthaus Theme
+   Copyright © 2020-Present Adhiraj Sirohi
+   Copyright © 2020-Present Vasundhara Sharma
+*/
+
+
+configuration {
+    #font:                 "Source Code Pro Medium 12";
+    margin:               0;
+    margin-bottom:        0;
+    margin-top:           0;
+    spacing:              0;
+    show-icons:           true;
+    hide-scrollbar:       false;
+
+    drun-display-format:  "{icon} {name}";
+    modi:                 "drun";
+
+    display-drun:         "🔍";
+    display-run:          "";
+    display-ssh:          "🖧";
+    display-window:       "";
+}
+
+
+* {
+    background-color:     #18191E;
+    bg:                   #18191E;
+    bg-alternate:         #21252D;
+    fg:                   #FFEE79;
+    fg-highlight:         #FF4D00;
+
+    fg-input:             #FFFF00;
+
+    border-color:         #44B273;
+}
+
+#listview {
+    spacing:              10px;
+    columns:              1;
+    margin:               0;
+    dynamic:              true;
+    padding:              0;
+    lines:                12;
+}
+
+#window {
+    background-color:     @bg;
+    border-color:         @border-color;
+    border:               3;
+    border-radius:        5;
+    width:                25%;
+}
+
+#mainbox {
+    border:               0;
+    padding:              0;
+    background-color:     @bg;
+}
+
+#element {
+    padding:              5;
+    text-color:           @fg;
+    background-color:     @bg;
+}
+
+#element.selected.normal {
+    background-color:     @bg-alternate;
+    text-color:           @fg-highlight;
+}
+
+#element.normal.active {
+    background-color:     @bg;
+}
+
+#element.normal.urgent {
+    background-color:     @bg-alternate;
+    text-color:           @fg-urgent;
+}
+
+#inputbar {
+    background-color:     @bg;
+    border:               0 0 3 0;
+    border-color:         @border-color;
+    children:             [prompt, entry];
+}
+
+#prompt {
+    enabled:              true;
+    padding:              10;
+    text-color:           @fg-input;
+    #font:                 "Source Code Pro Regular 13" ;
+}
+
+#entry {
+    padding:              10 10 10 5;
+    text-color:           @fg-input;
+    #font:                 "Source Code Pro Medium 13";
+}
